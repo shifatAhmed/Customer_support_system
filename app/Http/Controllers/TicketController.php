@@ -45,6 +45,7 @@ class TicketController extends Controller
 
     public function update(Request $request)
     {
+        //dd($request->status);
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
@@ -56,13 +57,13 @@ class TicketController extends Controller
         DB::beginTransaction();
         try {
             $validated['updated_by'] = Auth::id();
+            $validated['status'] = Auth::user()->type == 2 ? 1: $request->status;
 
             $ticket->update($validated);
 
             DB::commit();
-            return redirect()->route('edit-ticket', ['id'=> $request->id])->with('success_message', 'PlanType updated successfully.');
+            return redirect()->route('edit-ticket', ['id'=> $request->id])->with('success_message', 'Ticket updated successfully.');
         } catch (\Exception $e) {
-            dd($e);
             DB::rollBack();
             return back()->with('error_message', 'Failed to update plan type.');
         }

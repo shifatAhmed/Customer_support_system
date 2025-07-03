@@ -58,6 +58,22 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+          @if(Auth::user()->type==1)
+            <div class="mb-3">
+                <label for="status" class="form-label">Ticket Status</label>
+
+                    <select class="form-control @error('status') is-invalid @enderror" name="status">
+                    <option value="">Select status</option>
+                    <option value="1" @if(old('status', $ticket->status) == 1) selected @endif>Pending</option>
+                    <option value="2" @if(old('status', $ticket->status) == 2) selected @endif>Service in progress</option>
+                    <option value="3" @if(old('status', $ticket->status) == 3) selected @endif>Done</option>
+                    </select>
+
+                @error('status')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+          @endif
         </div>
       </div>
     </div>

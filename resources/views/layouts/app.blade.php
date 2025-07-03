@@ -166,7 +166,7 @@
 
             @if(Auth::user()->type == 1)
               <li class="menu-item {{ in_array(Request::segment(1), ['users'])?'active':''}}">
-                <a href="{{ route('users') }}" class="menu-link">
+                <a href="#" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-user"></i>
                   <div data-i18n="Analytics">Users</div>
                 </a>
