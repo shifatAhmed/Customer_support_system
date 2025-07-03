@@ -145,109 +145,14 @@
               </a>
             </li>
 
-            @if(Auth::user()->type != 3)
-              <li class="menu-item {{ in_array(Request::segment(1), ['plan-types'])?'active':''}}">
-                <a href="" class="menu-link">
+            @if(Auth::user()->type == 2)
+              <li class="menu-item {{ in_array(Request::segment(1), ['create-ticket'])?'active':''}}">
+                <a href="create-ticket" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-package"></i>
-                  <div data-i18n="Analytics">Plan Types</div>
+                  <div data-i18n="Analytics">Create Ticket</div>
                 </a>
               </li>
 
-              <li class="menu-item {{ in_array(Request::segment(1), ['customers'])?'active open':''}}">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-user"></i>
-                  <div data-i18n="Account Settings">Customers</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item {{ in_array(Request::segment(1), ['customers']) && !in_array(Request::segment(2), ['pending-customers'])?'active':''}}">
-                    <a href="" class="menu-link">
-                      <div data-i18n="Account">Customer List</div>
-                    </a>
-                  </li>
-                  <li class="menu-item {{ in_array(Request::segment(1), ['customers']) && in_array(Request::segment(2), ['pending-customers'])?'active':''}}">
-                   
-                    <a href="" class="menu-link">
-                      <div data-i18n="Notifications">Plan Request&nbsp;<span class="badge bg-label-danger"></span></div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="menu-item {{ in_array(Request::segment(1), ['tasks'])?'active open':''}}">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-task"></i>
-                  <div data-i18n="Account Settings">Task Management</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item {{ in_array(Request::segment(1), ['tasks']) && in_array(Request::segment(2), ['category'])?'active':''}}">
-                    <a href="" class="menu-link">
-                      <div data-i18n="Account">Task Category</div>
-                    </a>
-                  </li>
-                  <li class="menu-item {{ in_array(Request::segment(1), ['tasks']) && !in_array(Request::segment(2), ['category'])?'active':''}}">
-                    <a href="" class="menu-link">
-                      <div data-i18n="Notifications">Task List</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="menu-item {{ in_array(Request::segment(1), ['accounts'])?'active open':''}}">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bxs-bank"></i>
-                  <div data-i18n="Account Settings">Accounts</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item {{ in_array(Request::segment(1), ['accounts']) && in_array(Request::segment(2), ['payment-methods'])?'active':''}}">
-                    <a href="" class="menu-link">
-                      <div data-i18n="Account">Payment Methods</div>
-                    </a>
-                  </li>
-                  <li class="menu-item {{ in_array(Request::segment(1), ['accounts']) && in_array(Request::segment(2), ['withdrawals'])?'active':''}}">
-                    <a href="" class="menu-link">
-                      <div data-i18n="Notifications">Withdrawal List</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="menu-item {{ in_array(Request::segment(1), ['referral-list'])?'active':''}}">
-                <a href="" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-list-ul"></i>
-                  <div data-i18n="Analytics">Referral List</div>
-                </a>
-              </li>
-
-              <li class="menu-item {{ in_array(Request::segment(1), ['reports'])?'active open':''}}">
-                <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bxs-report"></i>
-                  <div data-i18n="Account Settings">Reports</div>
-                </a>
-                <ul class="menu-sub">
-                  <li class="menu-item {{ in_array(Request::segment(2), ['customer-growth'])?'active':''}}">
-                    <a href="" class="menu-link">
-                      <div data-i18n="Account">Customer Growth</div>
-                    </a>
-                  </li>
-                  <li class="menu-item {{ in_array(Request::segment(2), ['subscription-report'])?'active':''}}">
-                    <a href="" class="menu-link">
-                      <div data-i18n="Account">Subscription Report</div>
-                    </a>
-                  </li>
-                  <li class="menu-item {{ in_array(Request::segment(2), ['withdrawal-report'])?'active':''}}">
-                    <a href="" class="menu-link">
-                      <div data-i18n="Account">Withdrawal Report</div>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="menu-item {{ in_array(Request::segment(1), ['settings'])?'active':''}}">
-                <a href="" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-cog"></i>
-                  <div data-i18n="Analytics">Settings</div>
-                </a>
-              </li>
             @endif
 
 
